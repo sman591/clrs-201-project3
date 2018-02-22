@@ -6,7 +6,7 @@ const mix = function(start, end, Q) {
     const endValue = end[index];
 
     // Mix two colors
-    const newValue = endValue * Q;
+    const newValue = (endValue * Q) + (startValue * (1 - Q));
 
     // Round to an integer & constrain within [0, 255]
     return Math.min(Math.max(Math.round(newValue), 0), 255);
@@ -20,7 +20,10 @@ class ColorBlocks extends Component {
 
   updateQ(index, delta) {
     const copyOfQ = [...this.state.Q];
-    copyOfQ[index] = copyOfQ[index] + delta;
+    let newQ = copyOfQ[index] + delta;
+    // Constrain within [0, 1]
+    newQ = Math.min(Math.max(newQ, 0), 1);
+    copyOfQ[index] = newQ;
     this.setState({
       Q: copyOfQ
     });
