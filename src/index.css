@@ -10,6 +10,10 @@ body {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
+
+  border-bottom: 1px solid #000;
+  padding-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 .ColorBlock {

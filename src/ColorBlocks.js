@@ -15,7 +15,7 @@ const mix = function(start, end, Q) {
 
 class ColorBlocks extends Component {
   state = {
-    Q: [0.1, 0.4, 0.10, 0.5, 0.9]
+    Q: [0.1, 0.2, 0.3, 0.4, 0.9]
   };
 
   updateQ(index, delta) {
