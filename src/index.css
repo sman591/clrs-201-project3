@@ -16,6 +16,12 @@ body {
   margin-bottom: 15px;
 }
 
+.ColorBlocks:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
 .ColorBlock {
   width: 100px;
   height: 100px;
