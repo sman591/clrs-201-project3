@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import ColorBlock from './ColorBlock.js';
 
 const mix = function(start, end, Q) {
-  const newColor = [
-    Math.round(255.0 * Q),
-    Math.round(255.0 * Q),
-    Math.round(255.0 * Q)
-  ];
-  return newColor;
+  return start.map((startValue, index) => {
+    const endValue = end[index];
+
+    // Mix two colors
+    const newValue = endValue * Q;
+
+    // Round to an integer & constrain within [0, 255]
+    return Math.min(Math.max(Math.round(newValue), 0), 255);
+  });
 };
 
 class ColorBlocks extends Component {
