@@ -2,4 +2,19 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background: #eee;
 }
+
+.ColorBlocks {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+.ColorBlock {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #000;
+  margin: 15px;
+}
+

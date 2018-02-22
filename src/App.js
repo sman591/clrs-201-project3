@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ColorBlocks from './ColorBlocks.js';
-import './App.css';
 
 const SCALES = [
   {
