@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import ColorBlock from './ColorBlock.js';
 
-const mix = function(start, end, Q) {
+const mix = function(start, end, ratio) {
   return start.map((startValue, index) => {
     const endValue = end[index];
 
     // Mix two colors
-    const newValue = (endValue * Q) + (startValue * (1 - Q));
+    const newValue = (endValue * ratio) + (startValue * (1 - ratio));
 
     // Round to an integer & constrain within [0, 255]
     return Math.min(Math.max(Math.round(newValue), 0), 255);
@@ -15,17 +15,17 @@ const mix = function(start, end, Q) {
 
 class ColorBlocks extends Component {
   state = {
-    Q: [0.1, 0.2, 0.3, 0.4, 0.9]
+    ratios: [0.1, 0.2, 0.3, 0.4, 0.9]
   };
 
-  updateQ(index, delta) {
-    const copyOfQ = [...this.state.Q];
-    let newQ = copyOfQ[index] + delta;
+  updateRatio(index, delta) {
+    const ratiosCopy = [...this.state.ratios];
+    let newRatio = ratiosCopy[index] + delta;
     // Constrain within [0, 1]
-    newQ = Math.min(Math.max(newQ, 0), 1);
-    copyOfQ[index] = newQ;
+    newRatio = Math.min(Math.max(newRatio, 0), 1);
+    ratiosCopy[index] = newRatio;
     this.setState({
-      Q: copyOfQ
+      ratios: ratiosCopy
     });
   }
 
@@ -33,11 +33,11 @@ class ColorBlocks extends Component {
     return (
       <div className="ColorBlocks">
         <ColorBlock color={this.props.start} />
-        {this.state.Q.map((Q, index) => (
+        {this.state.ratios.map((ratio, index) => (
           <ColorBlock
             key={index}
-            color={mix(this.props.start, this.props.end, Q)}
-            onChange={(delta) => this.updateQ(index, delta)}
+            color={mix(this.props.start, this.props.end, ratio)}
+            onChange={(delta) => this.updateRatio(index, delta)}
           />
         ))}
         <ColorBlock color={this.props.end} />
