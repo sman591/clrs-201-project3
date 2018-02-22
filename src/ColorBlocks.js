@@ -7,7 +7,6 @@ const mix = function(start, end, Q) {
     Math.round(255.0 * Q),
     Math.round(255.0 * Q)
   ];
-  console.log(newColor);
   return newColor;
 };
 
@@ -25,7 +24,6 @@ class ColorBlocks extends Component {
   }
 
   render() {
-    console.log(this.state.Q);
     return (
       <div className="ColorBlocks">
         <ColorBlock color={this.props.start} />
