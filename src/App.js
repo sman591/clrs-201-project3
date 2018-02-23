@@ -21,13 +21,18 @@ const SCALES = [
 ];
 
 class App extends Component {
+  state = {
+    displayValues: false,
+  };
+
   render() {
     return (
       <div className="App">
         <p className="App-intro">
-          Click +/i to adjust colors below
+          Click +/i to adjust colors below.<br />
+          <button onClick={() => this.setState({ displayValues: !this.state.displayValues })}>Toggle value display</button>
         </p>
-        {SCALES.map((scale, index) => <ColorBlocks key={index} {...scale} />)}
+        {SCALES.map((scale, index) => <ColorBlocks key={index} {...scale} displayValues={this.state.displayValues} />)}
       </div>
     );
   }

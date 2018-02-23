@@ -16,7 +16,7 @@ class ColorBlocks extends Component {
       <div>
         <div className="ColorBlock" style={style} />
         <div className="ColorBlock--value">
-          {this.value()}
+          {this.props.displayValues && this.value()}
         </div>
         {this.props.onChange && (
           <div className="ColorBlock--controls">

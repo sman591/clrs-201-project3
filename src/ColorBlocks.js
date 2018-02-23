@@ -40,6 +40,7 @@ class ColorBlocks extends Component {
             key={index}
             color={mix(this.props.start, this.props.end, ratio)}
             onChange={(delta) => this.updateRatio(index, delta)}
+            displayValues={this.props.displayValues}
           />
         ))}
         <ColorBlock color={this.props.end} />
