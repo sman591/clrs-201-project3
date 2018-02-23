@@ -17,7 +17,7 @@ const mix = function(start, end, ratio) {
 
 class ColorBlocks extends Component {
   state = {
-    ratios: [0.1, 0.2, 0.3, 0.4, 0.9]
+    ratios: [0.1, 0.1, 0.1, 0.1, 0.1]
   };
 
   updateRatio(index, delta) {
