@@ -6,7 +6,9 @@ const mix = function(start, end, ratio) {
     const endValue = end[index];
 
     // Mix two colors
-    const newValue = (endValue * ratio) + (startValue * (1 - ratio));
+    const newValue = Math.sqrt(
+      (Math.pow(endValue, 2) * ratio) + (Math.pow(startValue, 2) * (1 - ratio))
+    );
 
     // Round to an integer & constrain within [0, 255]
     return Math.min(Math.max(Math.round(newValue), 0), 255);
