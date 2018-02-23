@@ -34,7 +34,7 @@ class ColorBlocks extends Component {
   render() {
     return (
       <div className="ColorBlocks">
-        <ColorBlock color={this.props.start} />
+        <ColorBlock color={this.props.start} displayValues={this.props.displayValues} />
         {this.state.ratios.map((ratio, index) => (
           <ColorBlock
             key={index}
@@ -43,7 +43,7 @@ class ColorBlocks extends Component {
             displayValues={this.props.displayValues}
           />
         ))}
-        <ColorBlock color={this.props.end} />
+        <ColorBlock color={this.props.end} displayValues={this.props.displayValues} />
       </div>
     );
   }
